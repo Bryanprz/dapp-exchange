@@ -188,7 +188,7 @@ class Balance extends Component {
 
   async loadBlockchainData() {
     const { dispatch, web3, exchange, token, account } = this.props
-    //await loadBalance(dispatch, web3, exchange, token, account)
+    await loadBalance(dispatch, web3, exchange, token, account)
   }
 
   render() {

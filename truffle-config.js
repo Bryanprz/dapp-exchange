@@ -6,6 +6,9 @@ require('babel-polyfill');
 
 require('dotenv').config();
 
+// access .env through 'process', which holds reference because we required file
+const privateKeys = process.env.PRIVATE_KEYS || ''
+
 module.exports = {
   /**
    * Networks define how you connect to your ethereum client and let you set the
@@ -24,6 +27,19 @@ module.exports = {
       port: 7545,
       network_id: "*" // match any network id
     },
+    kovan: {
+      provider: function() {
+        return new HDWalletProvider(
+          // private key, to know what account to connect to
+          privateKeys.split(',') // array of account private keys
+          // URL to eth node
+          `https://kovan.infura.io/v3/${process.env.INFURA_API_KEY}`
+        )
+      },
+      gas: 5000000,
+      gasPrice: 25000000000,
+      network_id: 42 // id for Kovan network
+    }
   },
   contracts_directory: './src/contracts/',
   contracts_build_directory: './src/abis/',

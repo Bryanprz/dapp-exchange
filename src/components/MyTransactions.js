@@ -14,7 +14,7 @@ import {
 import { cancelOrder } from '../store/interactions';
 
 const showMyFilledOrders = props => {
-  const { myFilledOrders, dispatch } = props
+  const { myFilledOrders } = props
 
   return(
     <tbody>
@@ -41,7 +41,7 @@ const showMyOpenOrders = props => {
           <tr key={order.id}>
             <td className={`text-${order.orderTypeClass}`}>{order.tokenAmount}</td>
             <td className={`text-${order.orderTypeClass}`}>{order.tokenPrice}</td>
-            <td 
+            <td
               onClick={e => cancelOrder(dispatch, exchange, order, account)}
               className="text-muted cancel-order"
             >X</td>

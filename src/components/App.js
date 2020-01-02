@@ -21,9 +21,7 @@ class App extends Component {
     const web3 = loadWeb3(dispatch);
     await web3.eth.net.getNetworkType();
     const networkId = await web3.eth.net.getId();
-    const accounts = await web3.eth.getAccounts();
-      console.log('acounts: ', accounts);
-    //await loadAccount(web3, dispatch);
+    await loadAccount(web3, dispatch);
     const token = await loadToken(web3, networkId, dispatch);
 
     if(!token) {

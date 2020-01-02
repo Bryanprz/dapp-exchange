@@ -3,11 +3,10 @@
 // e.g. export tokens fnc in test/helpers
 require('babel-register');
 require('babel-polyfill');
-
 require('dotenv').config();
-
 // access .env through 'process', which holds reference because we required file
-const privateKeys = process.env.PRIVATE_KEYS || ''
+const privateKeys = process.env.PRIVATE_KEYS || '';
+const HDWalletProvider = require('truffle-hdwallet-provider-privkey');
 
 module.exports = {
   /**
@@ -31,7 +30,7 @@ module.exports = {
       provider: function() {
         return new HDWalletProvider(
           // private key, to know what account to connect to
-          privateKeys.split(',') // array of account private keys
+          privateKeys.split(','), // array of account private keys
           // URL to eth node
           `https://kovan.infura.io/v3/${process.env.INFURA_API_KEY}`
         )

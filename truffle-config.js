@@ -32,7 +32,7 @@ module.exports = {
           // private key, to know what account to connect to
           privateKeys.split(','), // array of account private keys
           // URL to eth node
-          `https://kovan.infura.io/v3/${process.env.INFURA_API_KEY}`
+          `https://kovan.infura.io/${process.env.INFURA_API_KEY}`
         )
       },
       gas: 5000000,

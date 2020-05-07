@@ -347,7 +347,7 @@ const orderFilling = state => get(state, 'exchange.orderFilling', false)
 export const orderFillingSelector = createSelector(orderFilling, status => status)
 
 // Balances
-const balancesLoading = state => get(state, 'exchange.balancesLoading', true)
+const balancesLoading = state => get(state, 'exchange.balancesLoading', false)
 export const balancesLoadingSelector = createSelector(balancesLoading, status => status)
 
 const etherBalance = state => get(state, 'web3.balance', 0)
